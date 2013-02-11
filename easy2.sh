@@ -18,3 +18,4 @@ echo "Removed all .trm files older than 10 days..."
 #Done
 echo "Done."
 
+exit 0
