@@ -11,8 +11,6 @@
  *
  */
 
-
-
 #include <stdlib.h>
 #include <iostream>
 #include <easy4.h>
@@ -54,44 +52,29 @@ vector<string> Password::getPassword(int nPasswords, int nLength)
 
     //Loop for required number of passwords.
     for(int i = 0; i < nPasswords; i++)
-    {
-        //srand((unsigned)time(NULL));
-        
+    {        
         for(int k = 0; k < nLength; k++)
         {
             switchOne = rand() % 4;
 
-            //cout << switchOne << endl;
-
-            //cout << finalPassword << endl;
-
-            //Choose a char from 1 of the arrays based on switchOne.
+           //Choose a char from 1 of the arrays based on switchOne.
             if(switchOne == 1)
             {
                 finalPassword += plain_upper[(rand() % 26) - 1];
-
-                cout << "Choosing an upper case character: " << plain_upper[(rand() % 26) - 1] << endl;
             }
             else if(switchOne == 2)
             {
                 finalPassword += plain_lower[(rand() % 26) - 1];
-
-                cout << "Choosing a lower case character: " << plain_lower[(rand() % 26) - 1] << endl;
             }
             else if(switchOne == 3)
             {
                 finalPassword += symbols[(rand() % 14) - 1];
-
-                cout << "Choosing a symbol character: " << symbols[(rand() % 14) - 1] << endl;
             }
             else
             {
                 finalPassword += nums[(rand() % 10) - 1];
-
-                cout << "Choosing a number: " << ((rand() % 10) - 1) << endl;
             }
         }
-        //cout << finalPassword << endl;
         results.push_back(finalPassword);
         finalPassword = "";
     }   
@@ -111,15 +94,11 @@ int main()
 
     pdGenerator->setNumPasswords(num_Passwords);
 
-    cout << "Number of passwords to generate: " << pdGenerator->getNumPasswordsToGenerate() << endl;
-
     cout << "Please enter a number for the length required for each password(e.g. 12 characters): ";
 
     cin >> pLength;
 
     pdGenerator->setOrigPasswdLength(pLength);
-
-    cout << "Length for all " << pdGenerator->getNumPasswordsToGenerate() << " passwords: " << pdGenerator->getPassWordLength() << "." << endl;
 
     vector<string> pwResults = pdGenerator->getPassword(num_Passwords, pLength);
 

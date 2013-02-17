@@ -40,7 +40,6 @@ class Password
 
     private:
 
-        string passwords [];
         int numPasswords;
         int passwdLength;
 };
